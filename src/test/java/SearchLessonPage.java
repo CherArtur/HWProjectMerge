@@ -6,10 +6,11 @@ import java.lang.module.Configuration;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static java.lang.Thread.sleep;
 
 public class SearchLessonPage {
     @Test
-    void openPageFromHover() {
+    void openPageFromHover() throws InterruptedException {
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
 
@@ -23,6 +24,8 @@ public class SearchLessonPage {
         $(byText("Enterprise")).click();
         //Проверка заголовка на странице
         $("h1").shouldHave(Condition.text("Build like the best"));
+        //New conflict
+        sleep(955);
 
     }
     @Test
